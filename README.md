@@ -24,5 +24,5 @@ If you would like to contribute an exercise or improve an existing one, feel fre
 
 ## Repository Information
 
-- GitHub Repository: [alx-interview](https://github.com/gebretewodros73/alx-interview
+- GitHub Repository: [alx-interview](https://github.com/gebretewodros73/alx-interview)
 
