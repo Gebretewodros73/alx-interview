@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+Module Definition : pascals triangle
+"""
+
+
 def pascal_triangle(n):
     """
     Generates Pascal's Triangle up to level n.
