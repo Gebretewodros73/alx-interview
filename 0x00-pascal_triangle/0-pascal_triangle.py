@@ -17,7 +17,7 @@ def pascal_triangle(n):
     """
 
     try:
-        if not isinstance(n, int) or n < 0:
+        if not isinstance(n, int) or n <= 0:
             return []
 
         triangle = [[1]]
