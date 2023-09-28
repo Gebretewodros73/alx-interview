@@ -15,6 +15,7 @@ def pascal_triangle(n):
         list of lists: A list of lists representing Pascal's Triangle.
         []: If n is not a non-negative integer.
     """
+
     try:
         if not isinstance(n, int) or n < 0:
             return []
