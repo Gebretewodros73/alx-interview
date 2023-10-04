@@ -28,4 +28,4 @@ def canUnlockAll(boxes):
     # Start DFS from the first box
     dfs(0)
 
-    return len(opened_boxes) == len(boxes)
+    return len(opened_boxes) == len(boxes) or len(opened_boxes) == 1
