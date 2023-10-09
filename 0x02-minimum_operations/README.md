@@ -1,0 +1,51 @@
+# Minimum Operations
+
+## Tasks
+
+### 0. Minimum Operations
+**Mandatory**
+
+In a text file, there is a single character H. Your text editor can execute only two operations in this file: Copy All and Paste. Given a number n, write a method that calculates the fewest number of operations needed to result in exactly n H characters in the file.
+
+#### Prototype
+```python
+def minOperations(n):
+```
+
+#### Returns
+
+* An integer
+
+### Notes
+
+* If n is impossible to achieve, return 0
+
+#### Example
+
+```python
+n = 9
+
+H => Copy All => Paste => HH => Paste =>HHH => Copy All => Paste => HHHHHH => Paste => HHHHHHHHH
+
+Number of operations: 6
+```
+
+## Usage
+
+```python
+# Example usage in main file for testing
+
+minOperations = __import__('0-minoperations').minOperations
+
+n = 4
+print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+
+n = 12
+print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+```
+
+## Repository Details
+
+* GitHub repository: [alx-interview](./https://github.com/gebretewodros73/alx-interview)
+* Directory: [0x02-minimum_operations](./0x02-minimum_operations)
+* File: [0-minoperations.py](./0-minoperations.py)
