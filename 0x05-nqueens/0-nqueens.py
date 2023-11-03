@@ -5,53 +5,38 @@ import sys
 
 def is_safe(board, row, col, n):
     for i in range(col):
-        if board[row][i] == 1:
+        if board[i] == row or board[i] - i == row - col\
+                or board[i] + i == row + col:
             return False
-
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-
-    for i, j in zip(range(row, n, 1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-
     return True
 
 
 def solve_n_queens_util(board, col, n):
-    if col >= n:
-        print_solution(board)
+    if col == n:
+        print_solution(board, n)
         return True
 
     res = False
     for i in range(n):
         if is_safe(board, i, col, n):
-            board[i][col] = 1
+            board[col] = i
             res = solve_n_queens_util(board, col + 1, n) or res
-            board[i][col] = 0
+            board[col] = -1
 
     return res
 
 
 def solve_n_queens(n):
-    board = [[0 for _ in range(n)] for _ in range(n)]
+    board = [-1 for _ in range(n)]
 
     if not solve_n_queens_util(board, 0, n):
         print("Solution does not exist")
-        return False
-
-    return True
 
 
-def print_solution(board):
+def print_solution(board, n):
     solution = []
-    n = len(board)
     for i in range(n):
-        row = []
-        for j in range(n):
-            if board[i][j] == 1:
-                row.append([i, j])
+        row = [i, board[i]]
         solution.append(row)
 
     print(solution)
