@@ -1,22 +1,31 @@
 #!/usr/bin/python3
-"""Change making module."""
-import sys
+"""
+Change making module.
+"""
 
 
 def makeChange(coins, total):
-    """Determines the fewest number of coins needed to meet a given
+    """
+    Determines the fewest number of coins needed to meet a given
     amount total when given a pile of coins of different values.
     """
     if total <= 0:
         return 0
 
-    # Initialize a table to store minimum coins needed for each amount
-    dp = [sys.maxsize] * (total + 1)
-    dp[0] = 0
+    remaining = total
+    coins_count = 0
+    coin_index = 0
+    sorted_coins = sorted(coins, reverse=True)
+    num_coins = len(coins)
 
-    # Update the table using each coin denomination
-    for coin in coins:
-        for amount in range(coin, total + 1):
-            dp[amount] = min(dp[amount], dp[amount - coin] + 1)
+    while remaining > 0:
+        if coin_index >= num_coins:
+            return -1
 
-    return dp[total] if dp[total] != sys.maxsize else -1
+        if remaining - sorted_coins[coin_index] >= 0:
+            remaining -= sorted_coins[coin_index]
+            coins_count += 1
+        else:
+            coin_index += 1
+
+    return coins_count
